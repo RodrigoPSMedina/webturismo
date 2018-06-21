@@ -25,7 +25,7 @@ SECRET_KEY = '+p_=3j$pbxc^lt6ser1c&9@gdz#*rsxg3$yv7vckxcm&)bn7@('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '<shuji>.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'WebTurismo.pythonanywhere.com']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portal',
+    'geoposition',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +102,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+GEOPOSITION_MAP_OPTIONS = {
+	'minZoom': 15,
+	'maxZoom': 18,
+}
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -120,3 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media_images')
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY='AIzaSyDNCc7jlNLMqn3UQEWY5SMysy_Fh15aFLM'

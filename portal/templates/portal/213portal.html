@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+
+    <head> 
+        <title>WebTurismo - Seu site de informações TURISTICAS!!!</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Holtwood+One+SC&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Amaranth&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/portal.css' %}">
+    </head>
+    
+    <body>
+        <div>
+            <h1><a href="/">WebTurismo - Seu site de informações TURISTICAS!</a></h1>
+        </div>
+
+        {% for news in posts %}
+        <div> 
+            <div id="post">
+                <h1><a href="">{{news.title}}</a></h1>
+                <p>{{ news.text|linebreaksbr }}</p>
+                <div class ="date">
+                    <p>Publicado:{{news.published_date}}, {{news.author}}</p>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+    </body>
+</html>

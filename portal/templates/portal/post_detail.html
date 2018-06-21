@@ -1,0 +1,45 @@
+{% extends 'portal/base.html' %}
+{% load staticfiles %}
+<html>
+
+    <head> 
+        <title>WebTurismo</title>
+        <h4>Seu site para informações TURISTICAS!!!</h4>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Holtwood+One+SC&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Amaranth&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/portal.css' %}">
+        <script src="https://maps.google.apis.com/maps/api/js?libraries=places&key=AIzaSyDNCc7jlNLMqn3UQEWY5SMysy_Fh15aFLM"></script>
+    </head>
+    
+    <body>
+    <div class="page-header">
+        <h1><a href="/">WebTurismo</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+                <div class="postd">
+                    {% if post.published_date %}
+                        <div class="date">
+                            {{ post.published_date }}, <t style="color:#FF8B42">{{post.author}}</t>
+                        </div>
+                    {% endif %}
+                    <h1 style="color: #FF8B42">{{ post.title }}</h1>
+                    <p style="color:#000000 ">{{ post.text|linebreaksbr }}</p>
+                    <div id="map">
+                       <img src = {{post.foto.url}} style="width:600px"></img>
+                        <br>{{post.legenda}} <br>   
+                    </div>                                                
+
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="page-footer">
+        <footer>Paulo H. Lorençon & Rodrigo Medina LTDA</footer>
+    </div>    </body>
+</html>
