@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from geoposition.fields import GeopositionField
 
 class news(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
